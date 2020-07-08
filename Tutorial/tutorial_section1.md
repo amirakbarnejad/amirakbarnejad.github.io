@@ -23,10 +23,12 @@ list_relativedirs = ["1.svs", "2.svs", "3.svs"]
 list_patients = []
 for fname in list_relativedirs:
     new_patient = Patient(int_id,
-                          {"wsi":Record(rootdir, fname, {"resolution":"40x"}),\
-                           "HER2-status":"TODO:your label"}) 
-                           #int_id must be unique to the patient.
+                      {"wsi":Record(rootdir, fname, {"resolution":"40x"}),\
+                       "HER2-status":"TODO:your label"}) 
+                       #int_id must be unique to the patient.
     list_patients.append(new_patient)
 #make the dataset
 dataset = utils.data.Dataset("instituion_name", list_patients)
 ```
+
+[![button](http://www.presentationpro.com/images/product/medium/slide/PPP_CGENE_LT3_Presentation-PowerPoint-Slide-Graphic_Push_Button_Up.jpg)](https://mattermost.com)
