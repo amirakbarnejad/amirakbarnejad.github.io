@@ -31,4 +31,4 @@ for fname in list_relativedirs:
 dataset = utils.data.Dataset("instituion_name", list_patients)
 ```
 
-[![button](Tutorial/nextsection.png)](https://mattermost.com)
+[![button] Tutorial/nextsection.png](https://mattermost.com)
