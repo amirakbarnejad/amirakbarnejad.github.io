@@ -4,4 +4,4 @@
 ### Markdown
 
 DDSDFSDF Sdf sd fsDFSDf 
-- Here is the link to the tutorial: [a relative link](Tutorial_WSI_Tool/tutorial_section1.md)
+- Here is the link to the tutorial: [Tutorials](Tutorial/tutorial_section1.md)
