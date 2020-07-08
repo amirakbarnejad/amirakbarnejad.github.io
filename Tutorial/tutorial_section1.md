@@ -1,4 +1,4 @@
-## Section 1: Dataset API
+## Section 1: making a `Dataset`
 
 Medical imaging datasets are often messy. For instance, different modalities may be available for different patients. 
 TODO:packagename provides the following simple yet general abstraction: 
@@ -31,4 +31,4 @@ for fname in list_relativedirs:
 dataset = utils.data.Dataset("instituion_name", list_patients)
 ```
 
-[![button](nextsection.png)](tutorial_section2.md)
+[![button](nextsection.png)](tutorial_section2.html)
