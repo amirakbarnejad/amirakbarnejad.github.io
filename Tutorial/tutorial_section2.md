@@ -6,7 +6,7 @@ The below video illustrates this concept:
 
 <div class="myvideo">
    <video  style="display:block; width:100%; height:auto;" autoplay controls loop="loop">
-       <source src="sec2bigandsmallchunk.mp4" type="video/mp4" />
+       <source src="sec2bigandsmallchunkv2.mp4" type="video/mp4" />
    </video>
 </div>
 
