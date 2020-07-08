@@ -22,8 +22,10 @@ list_relativedirs = ["1.svs", "2.svs", "3.svs"]
 #make a list of patients
 list_patients = []
 for fname in list_relativedirs:
-    new_patient = Patient(int_id, {"wsi":Record(rootdir, fname, {"resolution":"40x"}),\
-                                   "HER2-status":0}) #int_id must be unique for patient.
+    new_patient = Patient(int_id,
+                          {"wsi":Record(rootdir, fname, {"resolution":"40x"}),\
+                           "HER2-status":"TODO:your label"}) 
+                           #int_id must be unique to the patient.
     list_patients.append(new_patient)
 #make the dataset
 dataset = utils.data.Dataset("instituion_name", list_patients)
