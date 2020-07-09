@@ -1,6 +1,6 @@
 # Welcome to pydmed Quick Start
 
-## Section 1: making a `Dataset`
+## Section 1: making a Dataset
 
 Medical imaging datasets are often messy. For instance, different modalities may be available for different patients. 
 TODO:packagename provides the following simple yet general abstraction: 
