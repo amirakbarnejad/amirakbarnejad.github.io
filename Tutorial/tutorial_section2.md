@@ -9,9 +9,7 @@ The below video illustrates this concept:
        <source src="sec2bigandsmallchunkv2.mp4" type="video/mp4" />
    </video>
 </div>
-
-
-[![button](prevsectionv3.png)](tutorial_section1.html)  |  [![button](nextsectionv3.png)](tutorial_section3.html)
+TODO:DDDDDD
 
 
 
