@@ -1,4 +1,4 @@
-# Welcome to The Quick Documentation for pydmed
+# Welcome to pydmed Quick Start
 
 ## Section 1: making a `Dataset`
 
