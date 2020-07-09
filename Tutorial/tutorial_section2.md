@@ -11,10 +11,10 @@ The below video illustrates this concept:
 </div>
 
 
-[![button](prevsectionv3.png)](tutorial_section1.html)
+[![button](prevsectionv4.png)](tutorial_section1.html)
 
 
-[![button](nextsectionv3.png)](tutorial_section3.html)
+[![button](nextsectionv4.png)](tutorial_section3.html)
 
 
 
