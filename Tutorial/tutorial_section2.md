@@ -11,9 +11,10 @@ The below video illustrates this concept:
 </div>
 
 
-Solarized dark             |  Solarized Ocean
-:-------------------------:|:-------------------------:
-[![button](prevsectionv3.png)](tutorial_section1.html)  |   [![button](nextsectionv3.png)](tutorial_section3.html)
+[![button](prevsectionv3.png)](tutorial_section1.html)
+
+
+[![button](nextsectionv3.png)](tutorial_section3.html)
 
 
 
