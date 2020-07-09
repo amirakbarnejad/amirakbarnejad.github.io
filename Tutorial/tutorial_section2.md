@@ -11,7 +11,7 @@ The below video illustrates this concept:
 </div>
 
 
-[![button](nextsectionv2.png)](tutorial_section2.html)  |  [![button](nextsectionv2.png)](tutorial_section2.html)
+[![button](prevsectionv3.png)](tutorial_section1.html)  |  [![button](nextsectionv3.png)](tutorial_section3.html)
 
 
 
