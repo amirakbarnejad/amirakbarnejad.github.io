@@ -1,5 +1,3 @@
-# Welcome to The Quick Documentation for pydmed
-
 ## Section 1: making a `Dataset`
 
 Medical imaging datasets are often messy. For instance, different modalities may be available for different patients. 
