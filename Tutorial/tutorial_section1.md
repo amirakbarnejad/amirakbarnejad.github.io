@@ -1,9 +1,9 @@
-# Welcome to pydmed Quick Start
+# Welcome to PyDmed Quick Start
 
 ## Section 1: making a Dataset
 
 Medical imaging datasets are often messy. For instance, different modalities may be available for different patients. 
-TODO:packagename provides the following simple yet general abstraction: 
+PyDmed provides the following simple yet general abstraction: 
 1. `utils.data.Record`: a record that belongs to a patient. It can be, e.g., a whole-slide-image.
 A `utils.data.Record` includes:
     - rootdir: the rootdirectory of the dataset, a string, e.g., "/usr/Dataset1/"

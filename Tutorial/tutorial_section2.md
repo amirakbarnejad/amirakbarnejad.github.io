@@ -1,6 +1,6 @@
 ## Section 2: Making a Dataloader
 
-In this scetion, we firstly introduce the two main objects in TODO:packagename: `BigChunk` and `SmallChunk`.
+In this scetion, we firstly introduce the two main objects in PyDmed: `BigChunk` and `SmallChunk`.
 
 The below video illustrates this concept:
 
