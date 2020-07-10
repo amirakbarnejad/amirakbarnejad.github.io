@@ -7,9 +7,9 @@ based on your machine (s).
 ### The hierarchy of processes
 The below figures illustrates the process tree of PyDmed
 
-![PyDmed process tree](pydmed_process_tree.png)
+![PyDmed process tree](pydmed_process_tree_v2.png)
 
-
+dsd fs df
 ### 
 
 
