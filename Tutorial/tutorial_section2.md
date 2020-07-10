@@ -10,10 +10,12 @@ The below video illustrates this concept:
    </video>
 </div>
 
+
 1. Big chunk: is a relatively big chunk from an instnace. It can be, e.g., a 5000x5000 patch from a huge whole-slide-image.
-   TODO:in the above video, they are .... 
+   In the above video, `BigChunk`s are the big patches that slowly get loaded from hard disk. 
 2. Small chunk: a small data chunk collected from a big chunk. It can be, e.g., a 224x224 patch cropped from a 5000x5000 big chunk.
-   TODO:in the above video, they are .....
+   In the above video, `SmallChunk`s are the red patches which are pushed to queues 1-5 and are then collected for gpu. 
+
 
 ## Making a BigChunkLoader
 To specify how to load a bigchunks, you should make a subclass of `lightdl.BigChunkLoader` and implement the
