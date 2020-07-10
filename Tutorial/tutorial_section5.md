@@ -44,4 +44,16 @@ const_global_info["core-assignment"] = {
 ```
 Core assignment uses [taskset](https://man7.org/linux/man-pages/man1/taskset.1.html) and is only supported for linux.
 
-
+As we saw in [section 2][tutorial_section2.html] we can use the default `const_global_info` as follows:
+```python
+const_global_info =\
+    pydmed.lightdl.get_default_constglobinf()
+```
+Here are some points that may help you customize `const_global_info`:
+- having very large queues (i.e. large values for "maxlength_queue_lightdl" and "maxlength_queue_smallchunk")
+  increases memory usage.
+- Loading a `BigChunk` is a slow process. Therefore, setting 
+  "interval_resched" to a small value may result in many IO requests beyond hard disk reading speed.
+- In the process tree, the dataloader process is essential. It may so happen that `SmallChunkCollector` take over the 
+  cores and cause the dataloader process (i.e. the root process in the tree) to starve. PyDmed automatically
+  avoids this issue by using [os.nice](https://docs.python.org/2/library/os.html). To further avoid this issue, in linux machines you can use the "core-assignment" field.
