@@ -8,7 +8,7 @@ The dataloader that we made in previous section is far from the above dataloader
 Indeed, the patches are very "localized".
 
 
-To handle this issue, a good practice is show in the below video:
+To handle this issue, a good practice is shown in the below video:
 <div class="myvideo">
    <video  style="display:block; width:100%; height:auto;" autoplay controls loop="loop">
        <source src="addingmorerandomnessv2.mp4" type="video/mp4" />
