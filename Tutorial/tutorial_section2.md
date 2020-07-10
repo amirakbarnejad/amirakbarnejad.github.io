@@ -25,7 +25,7 @@ abstract method `lightdl.BigChunkLoader.extract_bigchunk`.
 Here is an example of making a `BigChunkLoader`:
 
 ```python
-class WSIRandomBigchunkLoader(BigChunkLoader):
+class SampleBigchunkLoader(BigChunkLoader):
     @abstractmethod
     def extract_bigchunk(self, arg_msg):
         '''
@@ -60,7 +60,7 @@ abstract method `SmallChunkCollector.extract_smallchunk`.
 
 Here is an example of making a `SmallChunkCollector`:
 ```python
-class WSIRandomSmallchunkCollector(SmallChunkCollector):
+class SampleSmallchunkCollector(SmallChunkCollector):
 
     @abstractmethod 
     def extract_smallchunk(self, bigchunk, last_message_fromroot):
@@ -91,6 +91,40 @@ class WSIRandomSmallchunkCollector(SmallChunkCollector):
         return smallchunk
 ```
 
+## Making a Dataloader
+The last step is to make an instance of `pydmed.lightdl.LightDL` as follows:
+```python
+const_global_info =\
+    pydmed.lightdl.get_default_constglobinf()#tobe covered later on.
+dataloader = LightDL(
+                dataset = dataset,\
+                type_bigchunkloader = SampleBigchunkLoader,\
+                type_smallchunkcollector = SampleSmallchunkCollector,\
+                const_global_info = const_global_info,\
+                batch_size = 10,\
+                tfms = torchvision.transforms.ToTensor()
+        )
+```
+
+Now we can get data from the dataloader as follows:
+```python
+train_dl.start()
+time.sleep(10) #wait for the dataloader to load initial BigChunks.
+while True:
+    x, list_patients, list_smallchunks = dataloader.get()
+    '''
+    TODO: `x` is now a tensor of shape [batch_size x 3 x 224 x 224].
+    `list_patients` is a list of lenght batch_size.
+     You can use these values to, e.g., update model parameters.
+     .
+     .
+     .
+    '''
+    if(flag_finish_running == True):
+        dataloader.pause_loading()
+        break
+        
+```
 
 [![button](prevsectionv3.png)](tutorial_section1.html) | [![button](nextsectionv3.png)](tutorial_section3.html)
 
