@@ -2,7 +2,7 @@
 
 In this scetion, we firstly introduce the two main objects in PyDmed: `BigChunk` and `SmallChunk`.
 
-The below video illustrates this concept:
+The below video illustrates the concept:
 
 <div class="myvideo">
    <video  style="display:block; width:100%; height:auto;" autoplay controls loop="loop">
@@ -20,40 +20,40 @@ The below video illustrates this concept:
 
 ## Making a BigChunkLoader
 To specify how to load a bigchunks, you should make a subclass of `lightdl.BigChunkLoader` and implement the
-abstract method `lightdl.BigChunkLoader.extract_bigchunk(self)`. 
-Please note that in this function you have access to `self.patient` and `self.const_global_info`.
+abstract method `lightdl.BigChunkLoader.extract_bigchunk`. 
 
 Here is an example of making a `BigChunkLoader`:
 
 ```python
 class WSIRandomBigchunkLoader(BigChunkLoader):
     @abstractmethod
-    def extract_bigchunk(self):
+    def extract_bigchunk(self, arg_msg):
         '''
-        Extract and return a bigchunk. 
-        Please note that in this function you have access to
-        self.patient and self.const_global_info.
+        Extract and return a bigchunk.
+        Inputs:
+            - `arg_msg`: we won't need this argument for now. 
+        In this function you have access to `self.patient` and some
+        other functions and fields to be covered later on.
         '''
-        wsi = self.patient.dict_records["wsi"]
-        fname_wsi = wsi.rootdir + wsi.relativedir
-        osimage = openslide.OpenSlide(fname_wsi)
-        w, h = self.const_global_info["width_bigchunk"],\
-               self.const_global_info["heigth_bigchunk"] 
+        record_HandE = self.patient.dict_records["H&E"]
+        fname_hande = record_HandE.rootdir + record_HandE.relativedir
+        osimage = openslide.OpenSlide(fname_hande)
+        w, h = 224, 224
         W, H = osimage.dimensions
-        rand_x, rand_y = np.random.randint(0, W-w), np.random.randint(0, H-h)
+        rand_x, rand_y = np.random.randint(0, W-w),\
+                         np.random.randint(0, H-h)
         pil_bigchunk = osimage.read_region(location=[rand_x, rand_y],\
-                                           level=1,\
+                                           level=0,\
                                            size=[w,h])
-        bigchunk = BigChunk(data=np_bigchunk,\
-                                 dict_info_of_bigchunk={"x":rand_x, "y":rand_y},\
-                                 patient=self.patient)
+        np_bigchunk = np.array(pil_bigchunk)[:,:,0:3]
+        bigchunk = BigChunk(\
+                    data = np_bigchunk,\
+                    dict_info_of_bigchunk = {"x":rand_x, "y":rand_y},\
+                    patient = self.patient)
         return bigchunk
 ```
-```diff
-- Warning: the above code is only a sample.
-Instead of returning, e.g., a 20000x20000 crop as a BigChunk, it is highly recommened to return a list of smaller BigChunks, e.g., 5 crops of size 10000x10000 in a list.
-Please see the sample in TODO:pathtosample.
-```
+
+
 ## Making a SmallChunkCollector:
 To specify how to collect a smallchunk from a bigchunk, you should make a subclass of `lightdl.SmallChunkCollector` and implement the 
 abstract method `lightdl.SmallChunkCollector.extract_smallchunk(self, bigchunk)`. 

@@ -28,7 +28,7 @@ for fname in list_relativedirs:
     new_patient = Patient(\
                     int_uniqueid = TODO_int_id,
                     dict_records = \
-                      {"wsi":Record(rootdir, fname, {"resolution":"40x"}),\
+                      {"H&E":Record(rootdir, fname, {"resolution":"40x"}),\
                        "HER2-status":"TODO:your label"}) 
     list_patients.append(new_patient)
 #make the dataset
