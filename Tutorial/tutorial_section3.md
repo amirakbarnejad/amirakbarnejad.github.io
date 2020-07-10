@@ -2,7 +2,7 @@
 
 Assume we want a dataloader that repeatedly does the following:
 1. randomly select one of the huge images in dataset.
-2. return a 224x224 crop from a random position.
+2. return a 224x224 crop from a random location on the huge image.
 
 The dataloader that we made in previous section is far from the above dataloader. 
 Indeed, the patches are very "localized".
@@ -18,7 +18,7 @@ To handle this issue, a good practice is show in the below video:
 The idea is simple: In the `BigChunkLoader`, instead of loading a very large (e.g. 5000x5000) patch, we make/return a list of
 relatively smaller (e.g. 1000x1000) patches.
 
-The `BigChunkLoader` code of previous section will be changed as follows.
+The `BigChunkLoader` code of previous section would change as follows.
 Specially, note the lines `for count in range(5):` and `w, h = 1000, 1000`.
 ```python
 class SampleBigchunkLoader(BigChunkLoader):
@@ -51,6 +51,47 @@ class SampleBigchunkLoader(BigChunkLoader):
             list_bigchunk.append(bigchunk)
         return list_bigchunk
 ```
+
+The `SmallChunkCollector` of previous section would change as follows.
+Specially, note the line `bigchunk = random.choice(list_bigchunk)`. 
+```python
+class SampleSmallchunkCollector(SmallChunkCollector):
+
+    @abstractmethod 
+    def extract_smallchunk(self, list_bigchunk, last_message_fromroot):
+        '''
+        Extract and return a smallchunk. Please note that in this function you have access to 
+        self.bigchunk, self.patient, self.const_global_info.
+        Inputs:
+            - `list_bigchunk`: the bigchunks that we just extracted.
+            - `last_message_fromroot`: we won't need this argument for now.
+        In this function you have access to `self.patient` and some
+        other functions and fields to be covered later on.
+        '''
+        bigchunk = random.choice(list_bigchunk) #Note: this line added.
+        np_bigchunk = bigchunk.data
+        W, H = np_bigchunk.shape[1], np_bigchunk.shape[0]
+        w, h = 224, 224
+        rand_x, rand_y = np.random.randint(0, W-w),\
+                         np.random.randint(0, H-h)
+        np_smallchunk = np_bigchunk[rand_y:rand_y+h, rand_x:rand_x+w, :]
+        #wrap in SmallChunk
+        smallchunk = SmallChunk(\
+                        ata=np_smallchunk,\
+                        dict_info_of_smallchunk=\
+                                    {"x":rand_x, "y":rand_y},\
+                        dict_info_of_bigchunk = \
+                                    bigchunk.dict_info_of_bigchunk,\
+                        patient=bigchunk.patient
+                      )
+        return smallchunk
+```
+
+The return value from `BigChunkLoader.extract_bigchunk` can be of any type.
+Any value that you return in `BigChunkLoader.extract_bigchunk` will be passed to `SmallChunkCollector.extract_smallchunk`.
+However, the return value from `SmallChunkCollector.extract_smallchunk` is required to be an instance of `pydmed.lightdl.SmallChunk`.
+
+[![button](prevsectionv3.png)](tutorial_section2.html) | [![button](nextsectionv3.png)](tutorial_section4.html)
 
 
 
