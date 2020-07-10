@@ -72,7 +72,7 @@ class WSIRandomSmallchunkCollector(SmallChunkCollector):
             - `last_message_fromroot`: we won't need this argument for now.
         In this function you have access to `self.patient` and some
         other functions and fields to be covered later on.
-        ```
+        '''
         np_bigchunk = bigchunk.data
         W, H = np_bigchunk.shape[1], np_bigchunk.shape[0]
         w, h = 224, 224
