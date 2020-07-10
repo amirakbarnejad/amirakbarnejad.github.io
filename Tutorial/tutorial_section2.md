@@ -80,10 +80,14 @@ class WSIRandomSmallchunkCollector(SmallChunkCollector):
                          np.random.randint(0, H-h)
         np_smallchunk = np_bigchunk[rand_y:rand_y+h, rand_x:rand_x+w, :]
         #wrap in SmallChunk
-        smallchunk = SmallChunk(data=np_smallchunk,\
-                                dict_info_of_smallchunk={"x":rand_x, "y":rand_y},\
-                                dict_info_of_bigchunk = bigchunk.dict_info_of_bigchunk,\
-                                patient=bigchunk.patient)
+        smallchunk = SmallChunk(\
+                        ata=np_smallchunk,\
+                        dict_info_of_smallchunk=\
+                                    {"x":rand_x, "y":rand_y},\
+                        dict_info_of_bigchunk = \
+                                    bigchunk.dict_info_of_bigchunk,\
+                        patient=bigchunk.patient
+                      )
         return smallchunk
 ```
 
