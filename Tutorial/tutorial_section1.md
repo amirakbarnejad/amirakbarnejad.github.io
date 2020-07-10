@@ -25,10 +25,11 @@ list_relativedirs.sort()
 #make a list of patients
 list_patients = []
 for fname in list_relativedirs:
-    new_patient = Patient(int_uniqueid = TODO_int_id,
-                      dict_records = \
-                        {"wsi":Record(rootdir, fname, {"resolution":"40x"}),\
-                         "HER2-status":"TODO:your label"}) 
+    new_patient = Patient(\
+                    int_uniqueid = TODO_int_id,
+                    dict_records = \
+                      {"wsi":Record(rootdir, fname, {"resolution":"40x"}),\
+                       "HER2-status":"TODO:your label"}) 
     list_patients.append(new_patient)
 #make the dataset
 dataset = utils.data.Dataset("myHER2dataset", list_patients)
