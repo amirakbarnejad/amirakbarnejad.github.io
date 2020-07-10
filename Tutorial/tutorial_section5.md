@@ -23,12 +23,13 @@ Moreover, the dataloader makes sure that at all times at most one active `SmallC
 
 The parameters of the dataloader are managed by a dictionary called `const_global_info`.
 It has the following fields:
-- ddd
-- dddd
-- dddd
-- dddd
-- ddddd
-
+- `const_global_info["num_bigchunkloaders"]`: an integer. Is the number of running `BigChunkLoader`s.
+        According to the process tree, this number is also equal to the number of running `SmallChunkCollector`s.
+- `const_global_info["maxlength_queue_smallchunk"]`: an integer. Maximum length of the queues containing `SmallChunk`s.
+                            The above figure illustrates those queues: queue_1, queue_2, ..., and queue_5.
+- `maxlength_queue_lightdl`: an integer. The maximum length of the dataloader's queue. In the above figure,
+                             this queue is the queue that moves to right-left and collects `SmallChunk`s to send to GPU(s).
+- 
 
 
 
