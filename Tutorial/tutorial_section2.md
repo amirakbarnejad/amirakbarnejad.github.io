@@ -95,7 +95,7 @@ class SampleSmallchunkCollector(SmallChunkCollector):
 The last step is to make an instance of `pydmed.lightdl.LightDL` as follows:
 ```python
 const_global_info =\
-    pydmed.lightdl.get_default_constglobinf()#tobe covered later on.
+    pydmed.lightdl.get_default_constglobinf()#to be covered later on.
 dataloader = LightDL(
                 dataset = dataset,\
                 type_bigchunkloader = SampleBigchunkLoader,\
