@@ -56,4 +56,9 @@ Here are some points that may help you customize `const_global_info`:
   "interval_resched" to a small value may result in many IO requests beyond hard disk reading speed.
 - In the process tree, the dataloader process is essential. It may so happen that `SmallChunkCollector` take over the 
   cores and cause the dataloader process (i.e. the root process in the tree) to starve. PyDmed automatically
-  avoids this issue by using [os.nice](https://docs.python.org/2/library/os.html). To further avoid this issue, in linux machines you can use the "core-assignment" field.
+  avoids this issue by using [os.nice](https://docs.python.org/2/library/os.html).
+  To further avoid this issue, in linux machines you can use the `core-assignment` field.
+  
+  
+[![button](prevsectionv3.png)](tutorial_section4.html) | [![button](nextsectionv3.png)](tutorial_section6.html)
+
