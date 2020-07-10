@@ -108,13 +108,13 @@ dataloader = LightDL(
 
 Now we can get data from the dataloader as follows:
 ```python
-train_dl.start()
+dataloader.start()
 time.sleep(10) #wait for the dataloader to load initial BigChunks.
 while True:
     x, list_patients, list_smallchunks = dataloader.get()
     '''
-    TODO: `x` is now a tensor of shape [batch_size x 3 x 224 x 224].
-    `list_patients` is a list of lenght batch_size.
+    TODO: `x` is now a tensor of shape [`batch_size` x 3 x 224 x 224].
+    `list_patients` is a list of lenght `batch_size`.
      You can use these values to, e.g., update model parameters.
      .
      .
