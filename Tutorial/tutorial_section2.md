@@ -38,7 +38,7 @@ class WSIRandomBigchunkLoader(BigChunkLoader):
         record_HandE = self.patient.dict_records["H&E"]
         fname_hande = record_HandE.rootdir + record_HandE.relativedir
         osimage = openslide.OpenSlide(fname_hande)
-        w, h = 224, 224
+        w, h = 5000, 5000
         W, H = osimage.dimensions
         rand_x, rand_y = np.random.randint(0, W-w),\
                          np.random.randint(0, H-h)
@@ -56,28 +56,29 @@ class WSIRandomBigchunkLoader(BigChunkLoader):
 
 ## Making a SmallChunkCollector:
 To specify how to collect a smallchunk from a bigchunk, you should make a subclass of `lightdl.SmallChunkCollector` and implement the 
-abstract method `lightdl.SmallChunkCollector.extract_smallchunk(self, bigchunk)`. 
-Please note that in this function you have access to `self.patient` and `self.const_global_info`.
-***The return value of `lightdl.SmallChunkCollector.extract_smallchunk` must be an instance of `lightdl.SmallChunk`.***
+abstract method `SmallChunkCollector.extract_smallchunk`. 
 
 Here is an example of making a `SmallChunkCollector`:
 ```python
 class WSIRandomSmallchunkCollector(SmallChunkCollector):
 
     @abstractmethod 
-    def extract_smallchunk(self, returnvalue_bigchunkloader):
+    def extract_smallchunk(self, bigchunk, last_message_fromroot):
         '''
         Extract and return a smallchunk. Please note that in this function you have access to 
         self.bigchunk, self.patient, self.const_global_info.
         Inputs:
-            - returnvalue_bigchunkloader: the value that you return in BigChunkLoader.extract_bigchunk(self).
-        '''
-        bigchunk = returnvalue_bigchunkloader
-        W, H = bigchunk.data.shape[1], bigchunk.data.shape[0]
-        w, h = self.const_global_info["width_smallchunk"],\
-               self.const_global_info["heigth_smallchunk"]
-        rand_x, rand_y = np.random.randint(0, W-w), np.random.randint(0, H-h)
-        np_smallchunk = bigchunk.data[rand_y:rand_y+h, rand_x:rand_x+w, :]
+            - `bigchunk`: the bigchunk that we just extracted.
+            - `last_message_fromroot`: we won't need this argument for now.
+        In this function you have access to `self.patient` and some
+        other functions and fields to be covered later on.
+        ```
+        np_bigchunk = bigchunk.data
+        W, H = np_bigchunk.shape[1], np_bigchunk.shape[0]
+        w, h = 224, 224
+        rand_x, rand_y = np.random.randint(0, W-w),\
+                         np.random.randint(0, H-h)
+        np_smallchunk = np_bigchunk[rand_y:rand_y+h, rand_x:rand_x+w, :]
         #wrap in SmallChunk
         smallchunk = SmallChunk(data=np_smallchunk,\
                                 dict_info_of_smallchunk={"x":rand_x, "y":rand_y},\
