@@ -111,3 +111,6 @@ Here are some sample images. Please note that these are all of the `SmallChunks`
 ![sample output 2](patient_155.png)
 
 ![sample output 3](patient_198.png)
+
+[![button](prevsectionv3.png)](tutorial_section3.html) | [![button](nextsectionv3.png)](tutorial_section5.html)
+
