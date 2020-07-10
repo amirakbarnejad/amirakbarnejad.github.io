@@ -27,10 +27,21 @@ It has the following fields:
         According to the process tree, this number is also equal to the number of running `SmallChunkCollector`s.
 - `const_global_info["maxlength_queue_smallchunk"]`: an integer. Maximum length of the queues containing `SmallChunk`s.
                             The above figure illustrates those queues: queue_1, queue_2, ..., and queue_5.
-- `maxlength_queue_lightdl`: an integer. The maximum length of the dataloader's queue. In the above figure,
-                             this queue is the queue that moves to right-left and collects `SmallChunk`s to send to GPU(s).
-- 
-
-
+- `const_global_info["maxlength_queue_lightdl"]`: an integer. The maximum length of the dataloader's queue. In the above figure,
+                             this queue is the queue at the top that moves to right-left and collects `SmallChunk`s to send to GPU(s).
+- `const_global_info["interval_resched"]`: a floating point number. The regular intervals at which the dataloader terminates one of the `SmallChunkCollector`s
+   and starts a new `SmallChunkCollector` (and its child `BigChunkLoader`).
+   
+- `const_global_info["core-assignment"]`: This field lets you assign the processes in the process tree to different cores.
+For instance, the following code assigns the dataloader, `SmallChunkCollector`s and `BigChunkLoader`s to cores
+ {4}, {0}, {1,2,3}.
+```python
+const_global_info["core-assignment"] = {
+                       "lightdl":"4",
+                       "smallchunkloaders":"0",
+                       "bigchunkloaders":"1,2,3"
+                       }
+```
+Core assignment uses [taskset](https://man7.org/linux/man-pages/man1/taskset.1.html) and is only supported for linux.
 
 
