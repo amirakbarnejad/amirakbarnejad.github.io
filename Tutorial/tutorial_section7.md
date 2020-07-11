@@ -28,11 +28,11 @@ class SampleSmallchunkCollector(SmallChunkCollector):
         checkpoint = self.get_checkpoint()
         if(checkpoint == None):
             #If it is the very first `SmallChunk` to be extracted from
-            #  the patient, checkpoin is None.
+            #  the patient, checkpoint is None.
             num_extracted_smallchunks = 0
         else:
             num_extracted_smallchunks =
-                checkpoin["num_extracted_smallchunks"]
+                checkpoint["num_extracted_smallchunks"]
         
         '''
         .

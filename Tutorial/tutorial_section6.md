@@ -14,7 +14,7 @@ dataloader = LightDL(fname_logfile="logfile.txt",\
 Now the file "logfile.txt" will be automatically created, and will contain all logged information.
 
 
-We can call the function `log` everywhere. 
+We have access to the `log` function almost anywhere. 
 For instance, in `SmallChunkCollector`
 ```python
 class SampleSmallchunkCollector(SmallChunkCollector):
