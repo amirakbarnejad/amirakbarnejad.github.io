@@ -66,6 +66,7 @@ while True:
         break
         
 ```
+Please note that the log file will be flusehd once you call the function `dataloader.pause_loading()`.
 
 [![button](prevsectionv3.png)](tutorial_section5.html) | [![button](nextsectionv3.png)](tutorial_section7.html)
 
