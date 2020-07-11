@@ -62,11 +62,13 @@ Specially, note the line `bigchunk = random.choice(list_bigchunk)`.
 class SampleSmallchunkCollector(SmallChunkCollector):
 
     @abstractmethod 
-    def extract_smallchunk(self, list_bigchunk, last_message_fromroot):
+    def extract_smallchunk(self, call_count, list_bigchunk, last_message_fromroot):
         '''
-        Extract and return a smallchunk. Please note that in this function you have access to 
-        self.bigchunk, self.patient, self.const_global_info.
+        Extract and return a smallchunk. 
+        Note that in this function you have access to 
+        self.patient and some other fields/functions to be covered.
         Inputs:
+            - `call_count`: not needed for now.
             - `list_bigchunk`: the bigchunks that we just extracted.
             - `last_message_fromroot`: we won't need this argument for now.
         In this function you have access to `self.patient` and some
@@ -93,7 +95,7 @@ class SampleSmallchunkCollector(SmallChunkCollector):
 
 The return value from `BigChunkLoader.extract_bigchunk` can be of any type.
 Any value that you return in `BigChunkLoader.extract_bigchunk` will be passed to `SmallChunkCollector.extract_smallchunk`.
-However, the return value from `SmallChunkCollector.extract_smallchunk` is required to be an instance of `pydmed.lightdl.SmallChunk`.
+However, the return value from `SmallChunkCollector.extract_smallchunk` is required to be either an instance of `pydmed.lightdl.SmallChunk` or None.
 
 [![button](prevsectionv3.png)](tutorial_section2.html) | [![button](nextsectionv3.png)](tutorial_section4.html)
 
