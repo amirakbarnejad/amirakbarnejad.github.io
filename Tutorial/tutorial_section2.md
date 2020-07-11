@@ -75,9 +75,9 @@ class SampleSmallchunkCollector(SmallChunkCollector):
         Note that in this function you have access to 
         self.bigchunk, self.patient, self.const_global_info.
         Inputs:
+            - `call_count`: we won't need this argument for now.
             - `bigchunk`: the bigchunk that we just extracted.
             - `last_message_fromroot`: we won't need this argument for now.
-            - `call_count`: we won't need this argument for now.
         In this function you have access to `self.patient` and some
         other functions and fields to be covered later on.
         '''
