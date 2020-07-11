@@ -2,11 +2,11 @@
 [![button](prevsectionv3.png)](tutorial_section8.html) | [![button](nextsectionv3.png)](tutorial_section10.html)
 
 
-## Section 9: The send_message Function
+## Section 9: The "send_message" Function
 
 Assume that, e.g., our attention model wants patches from a specific location from a whole-slide-image.
 
-In this case we can use the send message function as follows:
+In this case we can use the `send_message` function as follows:
 
 ```python
 dataloader.start()
