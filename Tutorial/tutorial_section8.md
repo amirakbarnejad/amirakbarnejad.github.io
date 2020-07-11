@@ -13,7 +13,7 @@ In regular intervals:
 3. The extracted big chunk is passed to a `SmallChunkCollector`. The `SmallChunkCollector` has access to the patient by `self.patient`.
 
 
-In previous section we introduces the functions `set_checkpoint` and `get_checkpoint`.
+In previous section we introduced the functions `set_checkpoint` and `get_checkpoint`.
 Now we introduce the argument `call_count` which is passed to the `SmallChunkCollector`.
 Once the `SmallChunkCollector` starts, the passed `call_count` is zero.
 The argument `call_count` is the number of calls to the `SmallChunkCollector`'s `extract_smallchunk` function
@@ -43,12 +43,12 @@ class SampleSmallchunkCollector(SmallChunkCollector):
         '''
         return smallchunk
 ```
-Please note that unlike a "checkpoint" the `call_count` argument is related to the `SmallChunkCollector` rather than the `Patient`.
+Please note that unlike a "checkpoint", the `call_count` argument is related to the `SmallChunkCollector` rather than the `Patient`.
 
 Here is a [sample notebook](http://github.com/amirakbarnejad/PyDmed/tree/master/sample_notebooks/sample_2_setgetcheckpoint.ipynb)
 that combines `call_count`, `set_checkpoint` and `get_checkpoint` to explore each whole-slide-image in a circular path.
 
-Here are the results (high-quality .eps images provided in [this folder](https://github.com/amirakbarnejad/PyDmed/tree/master/sample_notebooks/Sample_2_Output)):
+Here are the results (high-quality .eps images are provided in [this folder](https://github.com/amirakbarnejad/PyDmed/tree/master/sample_notebooks/Sample_2_Output)):
 
 ![sample output 0](SetGetCheckpoint/patient_0.png)
 ![sample output 1](SetGetCheckpoint/patient_1.png)
