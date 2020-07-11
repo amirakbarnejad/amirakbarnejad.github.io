@@ -1,12 +1,12 @@
 
 [![button](prevsectionv3.png)](tutorial_section5.html) | [![button](nextsectionv3.png)](tutorial_section7.html)
 
-## Section 6: Logging to a File (for, e.g., debuggin)
+## Section 6: Logging to a File (for, e.g., debugging)
 As disscussed in previous section PyDmed uses multiprocessing. 
 Different processes do not have synchronized access to a console or terminal.
 But for debugging we often need to log some information. For this purpose, PyDmed provides the `log` function. 
 
-We need to first make a log file for the dataloader as follows:
+We need to first pass the log file's name to the dataloader as follows:
 ```python
 dataloader = LightDL(fname_logfile="logfile.txt",\
                      TODO:otherarguments )
