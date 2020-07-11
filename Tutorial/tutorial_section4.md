@@ -13,9 +13,9 @@ time.sleep(10) #wait for the dataloader to load initial BigChunks.
 while True:
     x, list_patients, list_smallchunks = dataloader.get()
     '''
-    TODO: `x` is now a tensor of shape [`batch_size` x 3 x 224 x 224].
-    `list_patients` is a list of lenght `batch_size`.
-     You can use these values to, e.g., update model parameters.
+     `x` is now a tensor of shape [`batch_size` x 3 x 224 x 224].
+     `list_patients` is a list of lenght `batch_size`.
+     TODO: You can use these values to, e.g., update model parameters.
      .
      .
      .
@@ -108,7 +108,7 @@ Once data loading is finished (i.e. after calling `dataloader.pause_loading()`) 
 dataloader.visualize(func_visualize_one_patient)
 ```
 Afterwards, according to the above `func_visualize_one_patient` for each patient one image will be created.
-Here are some sample images. Please note that these are all of the `SmallChunks` which are returned by the function `dataloader.get()`.
+Here are some sample images. Please note that these are all of the `SmallChunk`s which are returned by the function `dataloader.get()`.
 
 ![sample output 1](patient_102.png)
 
