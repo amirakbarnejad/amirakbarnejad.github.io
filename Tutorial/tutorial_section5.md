@@ -17,6 +17,13 @@ Each `SmallChunkCollector` (and its child `BigChunkLoader`) correspond to one `P
 Indeed, a `SmallChunkCollector` and the child `BigChunkLoader` work on a specific `Patient`.
 Moreover, the dataloader makes sure that at all times at most one active `SmallChunkCollector` works on a specific `Patient`.
 
+### Life Cycle of Subprocesses
+In regular intervals:
+1. The scheduler selects a patient from the dataset.
+2. A `BigChunkLoader` extracts a big chunk from the patient's records. The `BigChunkLoader` has access to the patient by `self.patient`.
+3. The extracted big chunk is passed to a `SmallChunkCollector`. The `SmallChunkCollector` has access to the patient by `self.patient`.
+
+
 ### Tailoring the dataloader to your machine (s)
 
 ![sample output 1](scshot_dataloader.png)

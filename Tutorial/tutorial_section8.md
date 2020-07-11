@@ -1,4 +1,4 @@
-## Section 7: Set/Get Checkpoints
+## Section 8: Call Count
 
 In [section 5](tutorial_section5.html) we reviewed the life cycle of a `BigChunkLoader`s and `SmallChunkCollector`s.
 
@@ -10,11 +10,6 @@ In regular intervals:
 
 
 The `SmallChunkCollector`s and `BigChunkLoader`s can be reschedulled any time. 
-Therefore, they may need to memorize some information or "checkpoint". For this purpose, PyDmed provideds the two functions
-`set_checkpoint` and `get_checkpoint`. 
-
-For instance, here is how a `SmallChunkCollector` can set/get the number of patches which are extracted for it's patient. 
-
 
 ```python
 class SampleSmallchunkCollector(SmallChunkCollector):
@@ -45,4 +40,4 @@ class SampleSmallchunkCollector(SmallChunkCollector):
 ```
 Please note that each "checkpoint" is indeed associated with a unique patient, rather than the `SmallChunkCollector` or the `BigChunkLoader`.
 
-[![button](prevsectionv3.png)](tutorial_section6.html) | [![button](nextsectionv3.png)](tutorial_section8.html)
+[![button](prevsectionv3.png)](tutorial_section7.html) | [![button](nextsectionv3.png)](tutorial_section9.html)
