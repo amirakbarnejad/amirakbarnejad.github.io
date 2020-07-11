@@ -83,7 +83,7 @@ class SampleSmallchunkCollector(SmallChunkCollector):
         np_smallchunk = np_bigchunk[rand_y:rand_y+h, rand_x:rand_x+w, :]
         #wrap in SmallChunk
         smallchunk = SmallChunk(\
-                        ata=np_smallchunk,\
+                        data=np_smallchunk,\
                         dict_info_of_smallchunk=\
                                     {"x":rand_x, "y":rand_y},\
                         dict_info_of_bigchunk = \
