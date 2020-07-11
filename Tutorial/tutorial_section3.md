@@ -1,3 +1,7 @@
+
+[![button](prevsectionv3.png)](tutorial_section2.html) | [![button](nextsectionv3.png)](tutorial_section4.html)
+
+
 ## Section 3: Adding More Randomness
 
 Assume we want a dataloader that repeatedly does the following:

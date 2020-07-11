@@ -1,3 +1,6 @@
+
+[![button](prevsectionv3.png)](tutorial_section5.html) | [![button](nextsectionv3.png)](tutorial_section7.html)
+
 ## Section 6: Logging to a File (for, e.g., debuggin)
 As disscussed in previous section PyDmed uses multiprocessing. 
 Different processes do not have synchronized access to a console or terminal.

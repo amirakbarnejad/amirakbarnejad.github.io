@@ -1,3 +1,7 @@
+
+[![button](prevsectionv3.png)](tutorial_section8.html) | [![button](nextsectionv3.png)](tutorial_section10.html)
+
+
 ## Section 9: The send_message Function
 
 Assume that, e.g., our attention model wants patches from a specific location from a whole-slide-image.

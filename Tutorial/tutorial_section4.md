@@ -1,3 +1,7 @@
+
+[![button](prevsectionv3.png)](tutorial_section3.html) | [![button](nextsectionv3.png)](tutorial_section5.html)
+
+
 ## Section 4: Visualization
 
 Assume we have used the dataloader to, e.g., learn a generative model on random patches.
