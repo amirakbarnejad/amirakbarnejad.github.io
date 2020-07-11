@@ -1,4 +1,4 @@
-## Section 7: Checkpoints for Small/Big Chunk Loaders:
+## Section 7: Set/Get Checkpoints
 
 dsd dfs df sdf
 sd fsd fs dfsd
