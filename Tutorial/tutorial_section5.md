@@ -4,8 +4,8 @@
 
 ## Section 5: PyDmed Process Tree
 PyDmed is implemented using python multiprocessing.
-You don't need to know about under the hood.
-But this section provides some general information so that you can get the best performance from PyDmed
+You don't need to know about multiprocessing.
+But this section introduces some general variables so that you can get the best performance from PyDmed
 based on your machine (s).
 
 ### The hierarchy of processes
@@ -45,7 +45,7 @@ It has the following fields:
    
 - `const_global_info["core-assignment"]`: This field lets you assign the processes in the process tree to different cores.
 For instance, the following code assigns the dataloader, `SmallChunkCollector`s and `BigChunkLoader`s to cores
- {4}, {0}, {1,2,3}.
+ {4}, {0}, {1,2,3}, respectively.
 ```python
 const_global_info["core-assignment"] = {
                        "lightdl":"4",
@@ -55,7 +55,7 @@ const_global_info["core-assignment"] = {
 ```
 Core assignment uses [taskset](https://man7.org/linux/man-pages/man1/taskset.1.html) and is only supported for linux.
 
-As we saw in [section 2][tutorial_section2.html] we can use the default `const_global_info` as follows:
+As we saw in [section 2](tutorial_section2.html) we can use the default `const_global_info` as follows:
 ```python
 const_global_info =\
     pydmed.lightdl.get_default_constglobinf()
@@ -64,8 +64,8 @@ Here are some points that may help you customize `const_global_info`:
 - having very large queues (i.e. large values for "maxlength_queue_lightdl" and "maxlength_queue_smallchunk")
   increases memory usage.
 - Loading a `BigChunk` is a slow process. Therefore, setting 
-  "interval_resched" to a small value may result in many IO requests beyond hard disk reading speed.
-- In the process tree, the dataloader process is essential. It may so happen that `SmallChunkCollector` take over the 
+  "interval_resched" to a small value may result in frequent IO requests beyond hard disk reading speed.
+- In the process tree, the dataloader process is essential. It may so happen that `SmallChunkCollector`s take over the 
   cores and cause the dataloader process (i.e. the root process in the tree) to starve. PyDmed automatically
   avoids this issue by using [os.nice](https://docs.python.org/2/library/os.html).
   To further avoid this issue, in linux machines you can use the `core-assignment` field.
