@@ -41,7 +41,7 @@ class SampleSmallchunkCollector(SmallChunkCollector):
 ```
 Please note that unlike a "checkpoint" the `call_count` argument is related to the `SmallChunkCollector` rather than the `Patient`.
 
-Here is a [sample notebook](https://github.com/amirakbarnejad/PyDmed/blob/master/sample_notebooks/sample_2_setgetstatus.ipynb)
+Here is a [sample notebook](http://github.com/amirakbarnejad/PyDmed/tree/master/sample_notebooks/sample_2_setgetcheckpoint.ipynb)
 that combines `call_count`, `set_checkpoint` and `get_checkpoint` to explore each whole-slide-image in a circular path.
 
 Here are the results (high-quality .eps images provided in [this folder](https://github.com/amirakbarnejad/PyDmed/tree/master/sample_notebooks/Sample_2_Output)):
