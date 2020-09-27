@@ -4,7 +4,7 @@
 ## Section 11: Comming Soon
 - Encoding a dataset containing whole-slide-images with VAE
 - Volumetric MRI segmentation, efficient data augmentation with PyDmed
-- Dealing with label imbalance in dataset
+- Efficiently produce CAMs (class activation maps) for a dataset of WSIs.
 - ..... 
 
 [![button](prevsectionv3.png)](tutorial_section10.html)
