@@ -5,7 +5,7 @@
 
 ## Section 9: Call Count
 
-In [section 5](tutorial_section5.html) we reviewed the life cycle of `BigChunkLoader`s and `SmallChunkCollector`s.
+In [section 6](tutorial_section6.html) we reviewed the life cycle of `BigChunkLoader`s and `SmallChunkCollector`s.
 
 
 In regular intervals:
