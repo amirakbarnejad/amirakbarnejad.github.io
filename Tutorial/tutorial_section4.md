@@ -62,8 +62,5 @@ dl = pydmed.extensions.dl.LabelBalancedDL(
 ```  
 
 
-
-
-
 [![button](prevsectionv3.png)](tutorial_section3.html) | [![button](nextsectionv3.png)](tutorial_section5.html)
 
