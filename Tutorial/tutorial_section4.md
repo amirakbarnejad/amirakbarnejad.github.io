@@ -52,7 +52,7 @@ def func_getlabel_of_patient(patient_input):
     '''
     return patient_input.dict_records["her2score"]
 
-#now we should pass the above function to the split function
+#now we should pass the above function to the dataloader. 
 dl = pydmed.extensions.dl.LabelBalancedDL(
             func_getlabel_of_patient=func_getlabel_of_patient,\
             "... other args same as those of the normal LightDL."
