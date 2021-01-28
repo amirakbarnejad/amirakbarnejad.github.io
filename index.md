@@ -4,14 +4,35 @@ I'm interested in machine learning, computer vision, and image processing.
 I'm currently a PhD student at University of Alberta.
 I'm supervised by
 [professor Ray](https://webdocs.cs.ualberta.ca/~nray1/index.html) from Computing Science department
-and professor Bigras from cross-cancer institue and UofA department of pathology.  
+and professor Gilbert Bigras from cross-cancer institue (CCI) and UofA department of Pathology.  
 
 # Research
-My 
+In the past, cancer diagnosis was limited to reviewing tissues/cells under microscope.
+Recently, making primary diagnosis from scanned/digitized pathology images has been officially approved.
+Apart from its clinical benefits, [digital pathology](https://en.wikipedia.org/wiki/Digital_pathology)
+provided machine learning researchers with abundant of data.
 
+My research focus is to develop/apply machine learning methods to pathology whole-slide images.
+        
 
+# Code
+We've developed a tool we called [PyDmed](https://github.com/amirakbarnejad/PyDmed) 
+to facilitate developing machine learning methods for whole-slide images and medical images in general.
+If you work on ML + medical imaging, [PyDmed](https://github.com/amirakbarnejad/PyDmed)
+is a real life changer (research changer :) ). 
 
-### Markdown
+      
+You can check out [PyDmed](https://github.com/amirakbarnejad/PyDmed)'s repository on 
+[github](https://github.com/amirakbarnejad/PyDmed).
 
-DDSDFSDF Sdf sd fsDFSDf 
-- Here is the link to the tutorial: [Tutorials](Tutorial/tutorial_section1.md)
+# Publications
+* A. Akbarnejad and N. Ray and G. Bigras, 
+"Deep Fisher Vector Coding For Whole Slide Image Classification," in
+International Symposium of Biomedical Imaging (ISBI), 2021. 
+
+* A. Akbarnejad and M. Soleymani Baghshah, "An Efficient Semi-supervised Multi-label Classi-
+fier Capable of Handling Missing Labels," in 
+IEEE Transactions on Knowledge and Data Engineering, 2018.
+
+* A. Akbarnejad and M. Soleymani Baghshah, "A Probabilistic Multi-label Classifier with Miss-
+ing and Noisy Labels Handling Capability.," in Pattern Recognition Letters, 2017.
