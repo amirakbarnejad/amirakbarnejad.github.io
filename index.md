@@ -12,7 +12,7 @@ Recently, making primary diagnosis from scanned/digitized pathology images has b
 Apart from its clinical benefits, [digital pathology](https://en.wikipedia.org/wiki/Digital_pathology)
 provided machine learning researchers with abundant of data.
 
-My research focus is to develop/apply machine learning methods to the digitized pathology images.
+My research focus is to develop/apply machine learning methods to digitized pathology images.
         
 
 # Code
