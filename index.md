@@ -12,14 +12,14 @@ Recently, making primary diagnosis from scanned/digitized pathology images has b
 Apart from its clinical benefits, [digital pathology](https://en.wikipedia.org/wiki/Digital_pathology)
 provided machine learning researchers with abundant of data.
 
-My research focus is to develop/apply machine learning methods to digitized pathology images.
+My research is about developing/adopting machine learning methods for digitized pathology images.
         
 
 # Code
 We've developed a tool we called [PyDmed](https://github.com/amirakbarnejad/PyDmed) 
 to facilitate developing machine learning methods for whole-slide images and medical images in general.
 If you work on ML + medical imaging, [PyDmed](https://github.com/amirakbarnejad/PyDmed)
-is a real life changer (research changer :) ). 
+is really a life changer (research changer :) ). 
 
       
 You can check out [PyDmed](https://github.com/amirakbarnejad/PyDmed)'s repository on 
