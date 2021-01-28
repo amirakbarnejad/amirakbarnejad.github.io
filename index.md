@@ -3,7 +3,7 @@ I recieved my B.Sc. and M.Sc. in computer engineering from Sharif University of 
 I'm interested in machine learning, computer vision, and image processing. 
 I'm currently a PhD student at University of Alberta.
 I'm supervised by
-[professor Ray](https://webdocs.cs.ualberta.ca/~nray1/index.html) from Computing Science department
+professor [Nilanjan Ray](https://webdocs.cs.ualberta.ca/~nray1/index.html) from Computing Science department
 and professor Gilbert Bigras from cross-cancer institue (CCI) and UofA department of Pathology.  
 
 # Research
@@ -12,7 +12,7 @@ Recently, making primary diagnosis from scanned/digitized pathology images has b
 Apart from its clinical benefits, [digital pathology](https://en.wikipedia.org/wiki/Digital_pathology)
 provided machine learning researchers with abundant of data.
 
-My research focus is to develop/apply machine learning methods to pathology whole-slide images.
+My research focus is to develop/apply machine learning methods to the digitized pathology images.
         
 
 # Code
