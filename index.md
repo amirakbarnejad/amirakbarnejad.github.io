@@ -7,7 +7,7 @@ professor [Nilanjan Ray](https://webdocs.cs.ualberta.ca/~nray1/index.html) from 
 and professor Gilbert Bigras from cross-cancer institue (CCI) and UofA department of Pathology.  
 
 # Research
-In the past, cancer diagnosis was done by viewing tissues/cells under microscope.
+In the past, cancer diagnosis was based on viewing tissues/cells under microscope.
 Recently, making primary diagnosis from scanned/digitized pathology images has been officially approved.
 Apart from its clinical benefits, [digital pathology](https://en.wikipedia.org/wiki/Digital_pathology)
 provided machine learning researchers with abundant of data.
