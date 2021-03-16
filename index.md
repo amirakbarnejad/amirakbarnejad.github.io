@@ -6,6 +6,12 @@ I'm supervised by
 professor [Nilanjan Ray](https://webdocs.cs.ualberta.ca/~nray1/index.html) from Computing Science department
 and professor Gilbert Bigras from cross-cancer institue (CCI) and UofA department of Pathology.  
 
+
+Email: ah8@ualberta.ca
+
+
+Office: 111 Athabasca Hall. 
+
 # Research
 In the past, cancer diagnosis was based on viewing tissues/cells under microscope.
 Recently, making primary diagnosis from scanned/digitized pathology images has been officially approved.
