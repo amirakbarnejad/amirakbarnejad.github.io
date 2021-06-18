@@ -3,7 +3,7 @@
 [![button](prevsectionv3.png)](tutorial_section9.html) | [![button](nextsectionv3.png)](tutorial_section11.html)
 
 
-## Section 9: Call Count
+## Section 10: Call Count
 
 In [section 6](tutorial_section6.html) we reviewed the life cycle of `BigChunkLoader`s and `SmallChunkCollector`s.
 

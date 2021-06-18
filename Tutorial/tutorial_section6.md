@@ -4,7 +4,7 @@
 [![button](prevsectionv3.png)](tutorial_section5.html) | [![button](nextsectionv3.png)](tutorial_section7.html)
 
 
-## Section 5: Visualization
+## Section 6: Visualization
 
 Assume we have used the dataloader to, e.g., learn a generative model on random patches.
 Assume we want to "see" the patches that the dataloader has returned.

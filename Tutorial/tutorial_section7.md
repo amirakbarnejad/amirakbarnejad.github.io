@@ -4,7 +4,7 @@
 [![button](prevsectionv3.png)](tutorial_section6.html) | [![button](nextsectionv3.png)](tutorial_section8.html)
 
 
-## Section 6: PyDmed Process Tree
+## Section 7: PyDmed Process Tree
 PyDmed is implemented using python multiprocessing.
 You don't need to know about multiprocessing.
 But this section introduces some general variables so that you can get the best performance from PyDmed

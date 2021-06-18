@@ -3,7 +3,7 @@
 [![button](prevsectionv3.png)](tutorial_section8.html) | [![button](nextsectionv3.png)](tutorial_section10.html)
 
 
-## Section 8: Set/Get Checkpoints
+## Section 9: Set/Get Checkpoints
 
 In [section 6](tutorial_section6.html) we reviewed the life cycle of `BigChunkLoader`s and `SmallChunkCollector`s.
 

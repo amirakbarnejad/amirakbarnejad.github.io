@@ -2,7 +2,7 @@
 
 [![button](prevsectionv3.png)](tutorial_section7.html) | [![button](nextsectionv3.png)](tutorial_section9.html)
 
-## Section 7: Logging to a File (for, e.g., debugging)
+## Section 8: Logging to a File (for, e.g., debugging)
 As disscussed in previous section PyDmed uses multiprocessing. 
 Different processes do not have synchronized access to a console or terminal.
 But for debugging we often need to log some information. For this purpose, PyDmed provides the `log` function. 
