@@ -51,7 +51,6 @@ For instnace in a dataset some of the slides might be scanned at 20x magnificati
 In this case, one may need to consider the level based on magnification level (e.g. level 0 for 40x slides and level 1 for 20x slides).
 For doing so, you can implement a function that decides a specific level for each WSI. Afterwards, you need to
 pass the function as the argument `intorfunc_opslevel`. The below code demonstrates the procedure:
-
 ```python
 def func_getopslevel(patient_input):
     flag_some_condition_on_patient = ... #Here you can make a boolean.
