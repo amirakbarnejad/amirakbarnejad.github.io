@@ -62,8 +62,7 @@ def func_getopslevel(patient_input):
 dl_forheatmap = pydmed.extensions.wsi.SlidingWindowDL(
           intorfunc_opslevel = func_getopslevel,
           .... other arguements .... 
-    )    
-
+    )
 ```
 
 2. `kernel_size`: an integer, the width of the sliding-window. This argument is analogous to 
