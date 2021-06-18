@@ -43,13 +43,15 @@ dl_forheatmap = pydmed.extensions.wsi.SlidingWindowDL(
 ``` 
 The `SlidingWindowDLTODO` has 4 additional arguments compared to the normal dataloader we discussed in
 [section 2](tutorial_section2.html):
-1. `intorfunc_opslevel`: This arguments specifies the pyramidal image's level from which the patches
+
+`intorfunc_opslevel`: This arguments specifies the pyramidal image's level from which the patches
 are going to be extracted. For example when this argument is set to 1, patches will be extracted from level 1.
 In histopathology datasets it is quite common to have slides which are scanned at different magnification levels.
 For instnace in a dataset some of the slides might be scanned at $20x$ magnification level, while some others at $40x$ magnification level.
 In this case, one may need to consider the level based on magnification level (e.g. level 0 for $40x$ slides and level 1 for $20x$ slides).
 For doing so, you can implement a function that decides a specific level for each WSI. Afterwards, you need to
 pass the function as the argument `intorfunc_opslevel`. The below code demonstrates the procedure:
+
 ```python
 def func_getopslevel(patient_input):
     flag_some_condition_on_patient = ... #Here you can make a boolean.
