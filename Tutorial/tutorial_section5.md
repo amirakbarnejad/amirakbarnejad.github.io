@@ -199,6 +199,8 @@ np_heatmap = pydmed.extensions.wsi.pdmcsvtoarray(
                     )
 ```
 You can increase the parameter `scale_upsampleraster` to increase the heatmap's resolution.
+
+
 ***Sample notebook to get heatmap is available at the following link: [Link to sample notebook.](https://github.com/amirakbarnejad/PyDmed/blob/8082a02da20c2b5285c722df31326e56ac08f56d/sample_notebooks/Sample3_Heatmap_for_WSIs/sample3_heatmap_for_WSIs.ipynb)***     
 
 
