@@ -44,13 +44,14 @@ dl_forheatmap = pydmed.extensions.wsi.SlidingWindowDL(
 The `SlidingWindowDLTODO` has 4 additional arguments compared to the normal dataloader we discussed in
 [section 2](tutorial_section2.html):
 
-1. `intorfunc_opslevel`: This arguments specifies the pyramidal image's level from which the patches
+arg1. `intorfunc_opslevel`: This arguments specifies the pyramidal image's level from which the patches
 are going to be extracted. For example when this argument is set to 1, patches will be extracted from level 1.
 In histopathology datasets it is quite common to have slides which are scanned at different magnification levels.
 For instnace in a dataset some of the slides might be scanned at 20x magnification level, while some others at 40x magnification level.
 In this case, one may need to consider the level based on magnification level (e.g. level 0 for 40x slides and level 1 for 20x slides).
 For doing so, you can implement a function that decides a specific level for each WSI. Afterwards, you need to
 pass the function as the argument `intorfunc_opslevel`. The below code demonstrates the procedure:
+
 ```python
 def func_getopslevel(patient_input):
     flag_some_condition_on_patient = ... #Here you can make a boolean.
@@ -65,12 +66,12 @@ dl_forheatmap = pydmed.extensions.wsi.SlidingWindowDL(
           .... other arguements .... 
     )
 ```
-2. `kernel_size`: an integer, the width of the sliding-window. This argument is analogous to 
+arg2. `kernel_size`: an integer, the width of the sliding-window. This argument is analogous to 
 the `kernel_size` argument of, e.g., [pytorch's Conv2d module](https://pytorch.org/docs/stable/generated/torch.nn.Conv2d.html).
-3. `stride`: an integer, the amount of shift of the sliding-window in each step.
+arg3. `stride`: an integer, the amount of shift of the sliding-window in each step.
 This argument is analogous to 
 the `stride` argument of, e.g., [pytorch's Conv2d module](https://pytorch.org/docs/stable/generated/torch.nn.Conv2d.html).
-4. `mininterval_loadnewbigchunk`: the minimum time (in seconds) between loading two BigChunks.
+arg4. `mininterval_loadnewbigchunk`: the minimum time (in seconds) between loading two BigChunks.
 The value is typically between 10 and 30 based on the mahcine being used.
 In case you noticed the dataloader is demanding too much from the machine, you can increase this argument. 
 
