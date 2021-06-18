@@ -4,8 +4,7 @@
 [![button](prevsectionv3.png)](tutorial_section4.html) | [![button](nextsectionv3.png)](tutorial_section6.html)
 
 ## Section 4: Getting Heatmaps for WISs
-***Sample notebook to get heatmap is available at the following link
-https://github.com/amirakbarnejad/PyDmed/blob/8082a02da20c2b5285c722df31326e56ac08f56d/sample_notebooks/Sample3_Heatmap_for_WSIs/sample3_heatmap_for_WSIs.ipynb***     
+***Sample notebook to get heatmap is available at the following link: [Link to sample notebook.](https://github.com/amirakbarnejad/PyDmed/blob/8082a02da20c2b5285c722df31326e56ac08f56d/sample_notebooks/Sample3_Heatmap_for_WSIs/sample3_heatmap_for_WSIs.ipynb)***     
 
 
 In this section we explain how to efficiently get output maps (e.g. output activations of a CNN) for huge whole-slide-images in
