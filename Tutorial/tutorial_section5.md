@@ -27,19 +27,19 @@ The only difference is that sliding-window dataloader (i.e., `SlidingWindowDL`)
 needs few additional arguements. The below code illustrates how to create a sliding-window dataloader:
 ```python
 dl_forheatmap = pydmed.extensions.wsi.SlidingWindowDL(
-          intorfunc_opslevel = 1,
-          kernel_size = kernel_size,
-          stride = kernel_size,
-          mininterval_loadnewbigchunk = 15,
-          dataset = dataset,\
-          type_bigchunkloader=pydmed.extensions.wsi.SlidingWindowBigChunkLoader,\
-          type_smallchunkcollector=pydmed.extensions.wsi.SlidingWindowSmallChunkCollector,\
-          const_global_info=const_global_info,\
-          batch_size=1,\
-          tfms_onsmallchunkcollection=tfms_onsmallchunkcollection,\
-          tfms = tfms_oncolate,
-          flag_grabqueue_onunsched = True
-    )
+    intorfunc_opslevel = 1,
+    kernel_size = kernel_size,
+    stride = kernel_size,
+    mininterval_loadnewbigchunk = 15,
+    dataset = dataset,\
+    type_bigchunkloader=pydmed.extensions.wsi.SlidingWindowBigChunkLoader,\
+    type_smallchunkcollector=pydmed.extensions.wsi.SlidingWindowSmallChunkCollector,\
+    const_global_info=const_global_info,\
+    batch_size=1,\
+    tfms_onsmallchunkcollection=tfms_onsmallchunkcollection,\
+    tfms = tfms_oncolate,
+    flag_grabqueue_onunsched = True
+  )
 ``` 
 The `SlidingWindowDLTODO` has 4 additional arguments compared to the normal dataloader we discussed in
 [section 2](tutorial_section2.html):
@@ -65,6 +65,7 @@ dl_forheatmap = pydmed.extensions.wsi.SlidingWindowDL(
     )    
 
 ```
+
 2. `kernel_size`: an integer, the width of the sliding-window. This argument is analogous to 
 the `kernel_size` argument of, e.g., [pytorch's Conv2d module](https://pytorch.org/docs/stable/generated/torch.nn.Conv2d.html).
 3. `stride`: an integer, the amount of shift of the sliding-window in each step.
@@ -194,10 +195,8 @@ np_heatmap = pydmed.extensions.wsi.pdmcsvtoarray(
                     )
 ```
 You can increase the parameter `scale_upsampleraster` to increase the heatmap's resolution.
-***Sample notebook to get heatmap is available at the following link
-https://github.com/amirakbarnejad/PyDmed/blob/8082a02da20c2b5285c722df31326e56ac08f56d/sample_notebooks/Sample3_Heatmap_for_WSIs/sample3_heatmap_for_WSIs.ipynb***     
+***Sample notebook to get heatmap is available at the following link: [Link to sample notebook.](https://github.com/amirakbarnejad/PyDmed/blob/8082a02da20c2b5285c722df31326e56ac08f56d/sample_notebooks/Sample3_Heatmap_for_WSIs/sample3_heatmap_for_WSIs.ipynb)***     
 
-      
 
 
 
