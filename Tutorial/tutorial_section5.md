@@ -66,7 +66,6 @@ dl_forheatmap = pydmed.extensions.wsi.SlidingWindowDL(
           .... other arguements .... 
     )
 ```
-
 2. `kernel_size`: an integer, the width of the sliding-window. This argument is analogous to 
 the `kernel_size` argument of, e.g., [pytorch's Conv2d module](https://pytorch.org/docs/stable/generated/torch.nn.Conv2d.html).
 3. `stride`: an integer, the amount of shift of the sliding-window in each step.
