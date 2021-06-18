@@ -2,53 +2,79 @@
 
 [![button](prevsectionv3.png)](tutorial_section7.html) | [![button](nextsectionv3.png)](tutorial_section9.html)
 
+## Section 7: Logging to a File (for, e.g., debugging)
+As disscussed in previous section PyDmed uses multiprocessing. 
+Different processes do not have synchronized access to a console or terminal.
+But for debugging we often need to log some information. For this purpose, PyDmed provides the `log` function. 
 
-## Section 8: Set/Get Checkpoints
-
-In [section 6](tutorial_section6.html) we reviewed the life cycle of `BigChunkLoader`s and `SmallChunkCollector`s.
-
-
-In regular intervals:
-1. The scheduler selects a patient from the dataset.
-2. A `BigChunkLoader` extracts a big chunk from the patient's records. The `BigChunkLoader` has access to the patient by `self.patient`.
-3. The extracted big chunk is passed to a `SmallChunkCollector`. The `SmallChunkCollector` has access to the patient by `self.patient`.
-
-
-The `SmallChunkCollector`s and `BigChunkLoader`s can be reschedulled any time. 
-Therefore, they may need to memorize some information or "checkpoint". For this purpose, PyDmed provideds the two functions
-`set_checkpoint` and `get_checkpoint`. 
-
-For instance, here is how a `SmallChunkCollector` can set/get the number of patches which are extracted for it's patient. 
+We need to first pass the log file's name to the dataloader as follows:
+```python
+dataloader = LightDL(fname_logfile="logfile.txt",\
+                     TODO:otherarguments )
+```
+Now the file "logfile.txt" will be automatically created, and will contain all logged information.
 
 
+We have access to the `log` function almost anywhere. 
+For instance, in `SmallChunkCollector`
 ```python
 class SampleSmallchunkCollector(SmallChunkCollector):
 
     @abstractmethod 
-    def extract_smallchunk(self, call_count, bigchunk, last_message_fromroot):
-        checkpoint = self.get_checkpoint()
-        if(checkpoint == None):
-            #If it is the very first `SmallChunk` to be extracted from
-            #  the patient, checkpoint is None.
-            num_extracted_smallchunks = 0
-        else:
-            num_extracted_smallchunks =
-                checkpoint["num_extracted_smallchunks"]
+    def extract_smallchunk(self, bigchunk, last_message_fromroot):
         
+        self.log("in time {} a SmallChunk loaded.\n".format(time.time()))
         '''
         .
         .
-        .
-        same as before 
-        .
-        .
+        same as before
+        . 
         .
         '''
-        self.set_checkpoint({"num_extracted_smallchunks":
-                                      num_extracted_smallchunks+1})
         return smallchunk
 ```
-Please note that each "checkpoint" is indeed associated with a unique patient, rather than the `SmallChunkCollector` or the `BigChunkLoader`.
+
+, or in `BigChunkLoader`
+
+```python
+class SampleBigchunkLoader(BigChunkLoader):
+    @abstractmethod
+    def extract_bigchunk(self, arg_msg):
+        self.log("in time {} a BigChunk loaded.\n".format(time.time()))
+        '''
+        .
+        .
+        same as before
+        . 
+        .
+        '''
+        return bigchunk
+```
+, or even from your main python process:
+```python
+dataloader.start()
+time.sleep(10) #wait for the dataloader to load initial BigChunks.
+while True:
+    x, list_patients, list_smallchunks = dataloader.get()
+    dataloader.log("main process got a batch of size {}.\n"\
+                   .format(len(list_patients)))
+    '''
+     .
+     .
+     as before
+     .
+     .
+    '''
+    if(flag_finish_running == True):
+        dataloader.pause_loading()
+        break
+        
+```
+Please note that the log file will be flusehd once you call the function `dataloader.pause_loading()`.
 
 [![button](prevsectionv3.png)](tutorial_section7.html) | [![button](nextsectionv3.png)](tutorial_section9.html)
+
+
+
+
 

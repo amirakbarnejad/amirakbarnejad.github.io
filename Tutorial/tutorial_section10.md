@@ -3,41 +3,60 @@
 [![button](prevsectionv3.png)](tutorial_section9.html) | [![button](nextsectionv3.png)](tutorial_section11.html)
 
 
-## Section 10: The "send_message" Function
+## Section 9: Call Count
 
-Assume that, e.g., our attention model wants patches from a specific location from a whole-slide-image.
+In [section 6](tutorial_section6.html) we reviewed the life cycle of `BigChunkLoader`s and `SmallChunkCollector`s.
 
-In this case we can use the `send_message` function as follows:
+
+In regular intervals:
+1. The scheduler selects a patient from the dataset.
+2. A `BigChunkLoader` extracts a big chunk from the patient's records. The `BigChunkLoader` has access to the patient by `self.patient`.
+3. The extracted big chunk is passed to a `SmallChunkCollector`. The `SmallChunkCollector` has access to the patient by `self.patient`.
+
+
+In previous section we introduced the functions `set_checkpoint` and `get_checkpoint`.
+Now we introduce the argument `call_count` which is passed to the `SmallChunkCollector`.
+Once the `SmallChunkCollector` starts, the passed `call_count` is zero.
+The argument `call_count` is the number of calls to the `SmallChunkCollector`'s `extract_smallchunk` function
+                 since the `SmallChunkCollector` has started working. 
 
 ```python
-dataloader.start()
-time.sleep(10) #wait for the dataloader to load initial BigChunks.
-while True:
-    x, list_patients, list_smallchunks = dataloader.get()
-    '''
-    `x` is now a tensor of shape [`batch_size` x 3 x 224 x 224].
-    `list_patients` is a list of lenght `batch_size`.
-     TODO: You can use these values to, e.g., update model parameters.
-     .
-     .
-     .
-    '''
-    for patient in list_patients:
-        dataloader.send_message(
-                            patient = patient,
-                            message = {"new attention":[todo_x, todo_y]}
-                            )
-    if(flag_finish_running == True):
-        dataloader.pause_loading()
-        break
-```
+class SampleSmallchunkCollector(SmallChunkCollector):
 
-The last message is passed to the `SmallChunkCollector` and the `BigChunkLoader` as the input arguments 
-`last_message_fromroot`. Please note that this is the last message associated with the `Patient` (i.e. `self.patient`
-in `SmallChunkCollector` and `BigChunkLoader`
-). The message is not required to be a string and can be any picklable object. 
+    @abstractmethod 
+    def extract_smallchunk(self, call_count, bigchunk, last_message_fromroot):
+        '''
+        Inputs:
+            - call_count: The number of calls to `extract_smallchunk`
+                 since the `SmallChunkCollector` has started working.
+            - bigchunk: introduces before.
+            - last_message_fromroot: to be covered.
+        
+        '''
+        '''
+        .
+        .
+        .
+        same as before 
+        .
+        .
+        .
+        '''
+        return smallchunk
+```
+Please note that unlike a "checkpoint", the `call_count` argument is related to the `SmallChunkCollector` rather than the `Patient`.
+
+Here is a [sample notebook](http://github.com/amirakbarnejad/PyDmed/tree/master/sample_notebooks/sample_2_setgetcheckpoint.ipynb)
+that combines `call_count`, `set_checkpoint` and `get_checkpoint` to explore each whole-slide-image in a circular path.
+
+Here are the results (high-quality .eps images are provided in [this folder](https://github.com/amirakbarnejad/PyDmed/tree/master/sample_notebooks/Sample_2_Output)):
+
+![sample output 0](SetGetCheckpoint/patient_0.png)
+![sample output 1](SetGetCheckpoint/patient_1.png)
+![sample output 2](SetGetCheckpoint/patient_2.png)
+![sample output 3](SetGetCheckpoint/patient_3.png)
+![sample output 4](SetGetCheckpoint/patient_4.png)
+
 
 [![button](prevsectionv3.png)](tutorial_section9.html) | [![button](nextsectionv3.png)](tutorial_section11.html)
-
-
 

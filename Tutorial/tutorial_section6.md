@@ -4,75 +4,120 @@
 [![button](prevsectionv3.png)](tutorial_section5.html) | [![button](nextsectionv3.png)](tutorial_section7.html)
 
 
-## Section 6: PyDmed Process Tree
-PyDmed is implemented using python multiprocessing.
-You don't need to know about multiprocessing.
-But this section introduces some general variables so that you can get the best performance from PyDmed
-based on your machine (s).
+## Section 5: Visualization
 
-### The hierarchy of processes
-The below figure illustrates the process tree of PyDmed.
-
-![PyDmed process tree](pydmed_process_tree_v2.png)
-
-Each `BigChunkLoader` is a child (i.e. subprocess) of a `SmallChunkCollector`.
-Once the `BigChunk` is loaded, the `BigChunkLoader` iteself is terminated. But the parent `SmallChunkCollector`
-will continue working on the `BigChunk`.
-
-Each `SmallChunkCollector` (and its child `BigChunkLoader`) correspond to one `Patient`.
-Indeed, a `SmallChunkCollector` and the child `BigChunkLoader` work on a specific `Patient`.
-Moreover, the dataloader makes sure that at all times at most one active `SmallChunkCollector` works on a specific `Patient`.
-
-### Life Cycle of Subprocesses
-In regular intervals:
-1. The scheduler selects a patient from the dataset.
-2. A `BigChunkLoader` extracts a big chunk from the patient's records. The `BigChunkLoader` has access to the patient by `self.patient`.
-3. The extracted big chunk is passed to a `SmallChunkCollector`. The `SmallChunkCollector` has access to the patient by `self.patient`.
-
-
-### Tailoring the dataloader to your machine (s)
-
-![sample output 1](scshot_dataloader.png)
-
-The parameters of the dataloader are managed by a dictionary called `const_global_info`.
-It has the following fields:
-- `const_global_info["num_bigchunkloaders"]`: an integer. Is the number of running `BigChunkLoader`s.
-        According to the process tree, this number is also equal to the number of running `SmallChunkCollector`s.
-- `const_global_info["maxlength_queue_smallchunk"]`: an integer. Maximum length of the queues containing `SmallChunk`s.
-                            The above figure illustrates those queues: queue_1, queue_2, ..., and queue_5.
-- `const_global_info["maxlength_queue_lightdl"]`: an integer. The maximum length of the dataloader's queue. In the above figure,
-                             this queue is the queue at the top that moves to right-left and collects `SmallChunk`s to send to GPU(s).
-- `const_global_info["interval_resched"]`: a floating point number. The regular intervals at which the dataloader terminates one of the `SmallChunkCollector`s
-   and starts a new `SmallChunkCollector` (and its child `BigChunkLoader`).
-   
-- `const_global_info["core-assignment"]`: This field lets you assign the processes in the process tree to different cores.
-For instance, the following code assigns the dataloader, `SmallChunkCollector`s and `BigChunkLoader`s to cores
- {4}, {0}, {1,2,3}, respectively.
+Assume we have used the dataloader to, e.g., learn a generative model on random patches.
+Assume we want to "see" the patches that the dataloader has returned.
+As in section 2, the code for training is rougly as follows:
 ```python
-const_global_info["core-assignment"] = {
-                       "lightdl":"4",
-                       "smallchunkloaders":"0",
-                       "bigchunkloaders":"1,2,3"
-                       }
+dataloader.start()
+time.sleep(10) #wait for the dataloader to load initial BigChunks.
+while True:
+    x, list_patients, list_smallchunks = dataloader.get()
+    '''
+     `x` is now a tensor of shape [`batch_size` x 3 x 224 x 224].
+     `list_patients` is a list of lenght `batch_size`.
+     TODO: You can use these values to, e.g., update model parameters.
+     .
+     .
+     .
+    '''
+    if(flag_finish_running == True):
+        dataloader.pause_loading()
+        break
+        
 ```
-Core assignment uses [taskset](https://man7.org/linux/man-pages/man1/taskset.1.html) and is only supported for linux.
 
-As we saw in [section 2](tutorial_section2.html) we can use the default `const_global_info` as follows:
+To visualize the collected `SmallChunk`s, you only need to implement a function that takes in:
+1. `patient`: an instnace of `Patient`.
+2. `list_smallchunks`: a list of `SmallChunk`s. This list contains all the returned `SmallChunk`s that correspond to `patient`.
+    
+
+Here is an example implementation of such a function. 
+This function shows a thumbnail of the patient's H&E slide. Afterwards, it shows `BigChunk`s as squares and `SmallChunk`s' centers as points on the thumbnail.  
+
 ```python
-const_global_info =\
-    pydmed.lightdl.get_default_constglobinf()
+def func_visualize_one_patient(patient, list_smallchunks):
+    '''
+    Given all smallchunks collected for a specific patient, this function
+    should visualize the patient. 
+    Inputs:
+     - patient: 
+      the patient under considerations, an instance of `utils.data.Patient`.
+     - list_smallchunks: the list of all collected small chunks for the patient,
+         a list whose elements are an instance of `lightdl.SmallChunk`.
+    '''
+    #settings =======
+    vis_scale = 0.1 #=====
+    fname_wsi = patient.dict_records["wsi"].rootdir +\
+                patient.dict_records["wsi"].relativedir
+    opsimage = openslide.OpenSlide(fname_wsi)
+    W, H = opsimage.dimensions
+    opsimageW, opsimageH = opsimage.dimensions
+    W, H = int(W*vis_scale), int(H*vis_scale)
+    pil_thumbnail = opsimage.get_thumbnail((W,H))
+    plt.ioff()
+    fig, ax = plt.subplots(1,2, figsize=(2*10,10))
+    ax[0].imshow(pil_thumbnail) #show the thumbnail
+    ax[0].axis('off')
+    ax[0].set_title("patient {}, H&E [{} x {}]."\
+                   .format(patient.int_uniqueid, opsimageW, opsimageH))
+    ax = ax[1]
+    ax.imshow(pil_thumbnail)
+    ax.axis('off')
+    print("patient {}, number of smallchunks={}"\
+          .format(patient, len(list_smallchunks)))
+    list_colors = ['lawngreen', 'cyan', 'gold', 'greenyellow']
+    list_shownbigchunks = []
+    for smallchunk in list_smallchunks:
+        #show the bigchunk ================
+        x = smallchunk.dict_info_of_bigchunk["x"]
+        y = smallchunk.dict_info_of_bigchunk["y"]
+        x, y = int(x*vis_scale), int(y*vis_scale)
+        if(not([x,y] in list_shownbigchunks)):
+            w, h = int(1000*vis_scale), int(1000*vis_scale)
+            rect = patches.Rectangle(
+                            (x,y), w, h, linewidth=1,\
+                            linestyle="--",\
+                            edgecolor=random.choice(list_colors),\
+                            facecolor='none', fill=False
+                            )
+            ax.add_patch(rect)
+            list_shownbigchunks.append([x,y])
+        
+        #get x,y,w,h ======
+        x = smallchunk.dict_info_of_smallchunk["x"]*vis_scale +\
+            smallchunk.dict_info_of_bigchunk["x"]*vis_scale
+        y = smallchunk.dict_info_of_smallchunk["y"]*vis_scale +\
+            smallchunk.dict_info_of_bigchunk["y"]*vis_scale
+        x, y = int(x), int(y)
+        w, h = int(224*vis_scale), int(224*vis_scale)
+        x_centre, y_centre = int(x+0.5*w), int(y+0.5*h)
+        #make-show the rect =====
+        circle = patches.Circle((x_centre, y_centre), radius=w*0.05,\
+                                 facecolor=random.choice(list_colors),\
+                                 fill=True)
+        ax.add_patch(circle)
+    plt.title("patient {} (extracted big/small chunks)"\
+              .format(patient.int_uniqueid), fontsize=20)
+    plt.savefig("Visualization/patient_{}.eps"\
+                .format(patient.int_uniqueid), bbox_inches='tight',\
+                 format='eps')
+    plt.close(fig)
 ```
-Here are some points that may help you customize `const_global_info`:
-- having very large queues (i.e. large values for "maxlength_queue_lightdl" and "maxlength_queue_smallchunk")
-  increases memory usage.
-- Loading a `BigChunk` is a slow process. Therefore, setting 
-  "interval_resched" to a small value may result in frequent IO requests beyond hard disk reading speed.
-- In the process tree, the dataloader process is essential. It may so happen that `SmallChunkCollector`s take over the 
-  cores and cause the dataloader process (i.e. the root process in the tree) to starve. PyDmed automatically
-  avoids this issue by using [os.nice](https://docs.python.org/2/library/os.html).
-  To further avoid this issue, in linux machines you can use the `core-assignment` field.
-  
-  
+Once data loading is finished (i.e. after calling `dataloader.pause_loading()`) we can visualize the collected `SmallChunk`s as follows:
+```python
+dataloader.visualize(func_visualize_one_patient)
+```
+Afterwards, according to the above `func_visualize_one_patient` for each patient one image will be created.
+Here are some sample images. Please note that these are all of the `SmallChunk`s which are returned by the function `dataloader.get()`.
+
+![sample output 1](patient_102.png)
+
+![sample output 2](patient_155.png)
+
+![sample output 3](patient_198.png)
+
 [![button](prevsectionv3.png)](tutorial_section5.html) | [![button](nextsectionv3.png)](tutorial_section7.html)
 
 
