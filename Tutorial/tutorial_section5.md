@@ -68,9 +68,13 @@ dl_forheatmap = pydmed.extensions.wsi.SlidingWindowDL(
 ```
 arg2. `kernel_size`: an integer, the width of the sliding-window. This argument is analogous to 
 the `kernel_size` argument of, e.g., [pytorch's Conv2d module](https://pytorch.org/docs/stable/generated/torch.nn.Conv2d.html).
+
+
 arg3. `stride`: an integer, the amount of shift of the sliding-window in each step.
 This argument is analogous to 
 the `stride` argument of, e.g., [pytorch's Conv2d module](https://pytorch.org/docs/stable/generated/torch.nn.Conv2d.html).
+
+
 arg4. `mininterval_loadnewbigchunk`: the minimum time (in seconds) between loading two BigChunks.
 The value is typically between 10 and 30 based on the mahcine being used.
 In case you noticed the dataloader is demanding too much from the machine, you can increase this argument. 
