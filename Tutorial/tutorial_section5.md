@@ -161,7 +161,7 @@ make the C-dimensional feature map.
 You can simply make an instance from `HeatmapStreamCollector` and call its `start_collecting()`
 function:
 ```python
-statcollector = HeatmapStreamCollector(
+streamcollector = HeatmapStreamCollector(
                 module_pipeline=model,
                 device = device,
                 lightdl = dl_forheatmap,
@@ -173,7 +173,7 @@ statcollector = HeatmapStreamCollector(
                     "waiting_time_before_flush":3
                 }
             )
-statcollector.start_collecting()
+streamcollector.start_collecting()
 ```
 
 For each `Patient`, a separate csv file will be created in "./Output/GeneratedHeatmaps/".
