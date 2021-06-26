@@ -180,8 +180,8 @@ For each `Patient`, a separate csv file will be created in "./Output/GeneratedHe
 Getting heatmap for WISs takes several minutes. 
 After several minutes, all information to get heatmaps will be saved on those csv files.
 Each line of those csv files includes the following information:
-1. [y,x]: the position of the extracted smallchunk.
-2. [H,W]: the size of the WSI at target level.
+1. (y,x): the position of the extracted smallchunk.
+2. (H,W): the size of the WSI at target level.
 3. level: the level from which the smallchunk is extracted.
 4. kernel size: the size of kernel.
 5. downsample in the level: the downsample (w.r.t level 0) for the target leve.
