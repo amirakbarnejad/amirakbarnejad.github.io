@@ -33,7 +33,7 @@ You can check out [PyDmed](https://github.com/amirakbarnejad/PyDmed)'s repositor
 
 # Publications
 
-* Y. Yang, A. Akbarnejad, N. Ray and G. Bigras,
+* Y. Yang and A. Akbarnejad and N. Ray and G. Bigras,
 "Double adversarial domain adaptation for whole-slide-imageclassification,"
 Medical Imaging with Deep Learning (MIDL), 2021.
 
