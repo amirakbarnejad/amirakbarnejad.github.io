@@ -32,6 +32,11 @@ You can check out [PyDmed](https://github.com/amirakbarnejad/PyDmed)'s repositor
 [github](https://github.com/amirakbarnejad/PyDmed).
 
 # Publications
+
+* Y. Yang, A. Akbarnejad, N. Ray and G. Bigras,
+"Double adversarial domain adaptation for whole-slide-imageclassification,"
+Medical Imaging with Deep Learning (MIDL), 2021.
+
 * A. Akbarnejad and N. Ray and G. Bigras, 
 "Deep Fisher Vector Coding For Whole Slide Image Classification," in
 International Symposium of Biomedical Imaging (ISBI), 2021. 
