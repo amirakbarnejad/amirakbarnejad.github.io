@@ -33,6 +33,10 @@ You can check out [PyDmed](https://github.com/amirakbarnejad/PyDmed)'s repositor
 
 # Publications
 
+* A. Akbarnejad and G. Bigras and N. Ray,
+"GPEX, A Framework For Interpreting Artificial Neural Networks,"
+arxiv preprint: https://arxiv.org/abs/2112.09820.
+
 * Y. Yang and A. Akbarnejad and N. Ray and G. Bigras,
 "Double adversarial domain adaptation for whole-slide-imageclassification,"
 Medical Imaging with Deep Learning (MIDL), 2021.
