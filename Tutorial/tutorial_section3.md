@@ -4,7 +4,7 @@
 
 ## Section 3: Adding More Randomness
 
-> :warning: Besides the workaround introduced below, a good practice is to set the queue lenghts to small values. Because otherwise the queues will be overwhlemed by initially-loaded bigchunks. You can check out "sample_notebooks/sample_1_train_classifier.ipynb" for typical queue lenghts (typical values for `const_global_info["maxlength_queue_smallchunk"]` and `const_global_info["maxlength_queue_lightdl"]`).  
+:warning: Besides the workaround introduced below, a good practice is to set the queue lenghts to small values. Because otherwise the queues will be overwhlemed by initially-loaded bigchunks. You can check out "sample_notebooks/sample_1_train_classifier.ipynb" for typical queue lenghts (typical values for `const_global_info["maxlength_queue_smallchunk"]` and `const_global_info["maxlength_queue_lightdl"]`).  
 
 Assume we want a dataloader that repeatedly does the following:
 1. randomly select one of the huge images in dataset.
