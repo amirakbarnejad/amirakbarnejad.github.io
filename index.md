@@ -32,6 +32,9 @@ You can check out [PyDmed](https://github.com/amirakbarnejad/PyDmed)'s repositor
 [github](https://github.com/amirakbarnejad/PyDmed).
 
 # Publications
+*A. Akbarnejad  and N. Ray and P. J Barnes and G. Bigras,
+"Predicting Ki67, ER, PR, and HER2 Statuses from H&E-stained Breast Cancer Images,"
+arxiv preprint: https://arxiv.org/abs/2308.01982.
 
 * A. Akbarnejad and G. Bigras and N. Ray,
 "GPEX, A Framework For Interpreting Artificial Neural Networks,"
