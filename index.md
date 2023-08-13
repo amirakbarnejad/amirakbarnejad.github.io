@@ -36,11 +36,16 @@ You can check out [PyDmed](https://github.com/amirakbarnejad/PyDmed)'s repositor
 "Predicting Ki67, ER, PR, and HER2 Statuses from H&E-stained Breast Cancer Images,"
 arxiv preprint: https://arxiv.org/abs/2308.01982.
 
-Link to the dataset[ihc4bc.githubio](https://ihc4bc.github.io)
+Link to the dataset[ihc4bc.githubio](https://ihc4bc.github.io) 
 
 * A. Akbarnejad and G. Bigras and N. Ray,
 "GPEX, A Framework For Interpreting Artificial Neural Networks,"
 arxiv preprint: https://arxiv.org/abs/2112.09820.
+
+Link to the github repo [https://github.com/amirakbarnejad/gpex](https://github.com/amirakbarnejad/gpex)
+
+
+Link to GPEX documentation [https://gpex.readthedocs.io/en/latest/](https://gpex.readthedocs.io/en/latest/)
 
 * Y. Yang and A. Akbarnejad and N. Ray and G. Bigras,
 "Double adversarial domain adaptation for whole-slide-imageclassification,"
