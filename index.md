@@ -39,8 +39,9 @@ arxiv preprint: https://arxiv.org/abs/2308.01982.
 Link to the dataset[ihc4bc.githubio](https://ihc4bc.github.io) 
 
 * A. Akbarnejad and G. Bigras and N. Ray,
-"GPEX, A Framework For Interpreting Artificial Neural Networks,"
-arxiv preprint: https://arxiv.org/abs/2112.09820.
+"GPEX, A Framework For Interpreting Artificial Neural Networks," 
+Conference on Neural Information Processing Systems (NeurIPS) 2023.
+
 
 Link to the github repo [https://github.com/amirakbarnejad/gpex](https://github.com/amirakbarnejad/gpex)
 
