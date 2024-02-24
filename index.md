@@ -32,6 +32,8 @@ You can check out [PyDmed](https://github.com/amirakbarnejad/PyDmed)'s repositor
 [github](https://github.com/amirakbarnejad/PyDmed).
 
 # Publications
+* N. Guruprasad, A. Akbarnejad, PJ Barnes, G. Bigras, and N. Ray "A Closer Look at Weak Supervision’s Limitations in WSI Recurrence Score Prediction", 2023 IEEE International Conference on Bioinformatics and Biomedicine (BIBM 2023).
+
 * A. Akbarnejad  and N. Ray and P. J Barnes and G. Bigras,
 "Predicting Ki67, ER, PR, and HER2 Statuses from H&E-stained Breast Cancer Images,"
 arxiv preprint: https://arxiv.org/abs/2308.01982.
