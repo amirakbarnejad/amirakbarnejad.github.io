@@ -1,13 +1,12 @@
 # About
-I recieved my B.Sc. and M.Sc. in computer engineering from Sharif University of Technology.
-I'm interested in machine learning, computer vision, and image processing. 
-I'm currently a PhD student at University of Alberta.
-I'm supervised by
-professor [Nilanjan Ray](https://webdocs.cs.ualberta.ca/~nray1/index.html) from Computing Science department
+I am a postdoctoral researcher in Wellcome Sanger Institute and University of Cambridge.
+I'm interested in machine learning for biomedical data, causal modelling and inference, and interpretability for biomedical discovery. 
+
+I was a PhD student at University of Alberta, where I was supervised by professor [Nilanjan Ray](https://webdocs.cs.ualberta.ca/~nray1/index.html) from Computing Science department
 and professor Gilbert Bigras from cross-cancer institue (CCI) and UofA department of Pathology.  
+Before that I recieved my B.Sc. and M.Sc. in computer engineering from Sharif University of Technology.
 
-
-Email: ah8@ualberta.ca
+Email: ah8 at ualberta dot ca, aa36 at sanger dot ac dot uk 
 
 
 Office: 111 Athabasca Hall. 
