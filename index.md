@@ -21,7 +21,11 @@ My research is about developing/adopting machine learning methods for digitized 
         
 
 # Code
-We've developed a tool we called [PyDmed](https://github.com/amirakbarnejad/PyDmed) 
+* GPEX is a tool that enables min-batch training of Gaussian processes thereby making it scalable to large, e.g., image datasets and with GPU acceleration. Moreover, given an artificial neural network it finds equivalent Gaussian processes whereby the artificial neural network can be unboxed.
+
+GPEX documentation: [https://gpex.readthedocs.io/en/latest/](https://gpex.readthedocs.io/en/latest/)
+    
+* We've developed a tool we called [PyDmed](https://github.com/amirakbarnejad/PyDmed) 
 to facilitate developing machine learning methods for whole-slide images and medical images in general.
 If you work on ML + medical imaging, [PyDmed](https://github.com/amirakbarnejad/PyDmed)
 is really a life changer (research changer :) ). 
