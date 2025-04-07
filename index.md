@@ -6,7 +6,7 @@ I was a PhD student at University of Alberta, where I was supervised by professo
 and professor Gilbert Bigras from cross-cancer institue (CCI) and UofA department of Pathology.  
 Before that I recieved my B.Sc. and M.Sc. in computer engineering from Sharif University of Technology.
 
-Follow me on X: @AA_AkbarrrrRR
+Follow me on X: **@AA_AkbarrrrRR**
 
 Email: ah8 at ualberta dot ca, aa36 at sanger dot ac dot uk 
 
