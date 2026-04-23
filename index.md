@@ -1,48 +1,39 @@
 # About
-I am a postdoctoral researcher in Wellcome Sanger Institute and University of Cambridge.
-I'm interested in machine learning for biomedical data, causal modelling and inference, and interpretability for biomedical discovery. 
-
-I was a PhD student at University of Alberta, where I was supervised by professor [Nilanjan Ray](https://webdocs.cs.ualberta.ca/~nray1/index.html) from Computing Science department
+I recieved my B.Sc. and M.Sc. in computer engineering from Sharif University of Technology.
+I received my PhD from University of Alberta, supervised by
+professor [Nilanjan Ray](https://webdocs.cs.ualberta.ca/~nray1/index.html) from Computing Science department
 and professor Gilbert Bigras from cross-cancer institue (CCI) and UofA department of Pathology.  
-Before that I recieved my B.Sc. and M.Sc. in computer engineering from Sharif University of Technology.
+Now I'm a postdoctoral researcher at Wellcome Sanger Institute and University of Cambridge.
 
 Follow me on X: **@akbaRRnejad**
 
-Email: ah8 at ualberta dot ca, aa36 at sanger dot ac dot uk 
+Email: ah8 [at] ualberta [dot] ca, aa36 [at] sanger [dot] ac [dot] uk
 
-
-Office: 111 Athabasca Hall. 
 
 # Research
-In the past, cancer diagnosis was based on viewing tissues/cells under microscope.
-Recently, making primary diagnosis from scanned/digitized pathology images has been officially approved.
-Apart from its clinical benefits, [digital pathology](https://en.wikipedia.org/wiki/Digital_pathology)
-provided machine learning researchers with abundant of data.
 
-My research is about developing/adopting machine learning methods for digitized pathology images.
-        
+My research is about adopting machine learning for biomedical discovery. 
+I work in the intersection of statistical machine learning, causal modelling, as well as recently developed tools (transformers, foundation models, generative modelling, etc).
 
-# Code
-* GPEX is a tool that enables min-batch training of Gaussian processes thereby making it scalable to large, e.g., image datasets and with GPU acceleration. Moreover, given an artificial neural network it finds equivalent Gaussian processes whereby the artificial neural network can be unboxed.
-
-GPEX documentation: [https://gpex.readthedocs.io/en/latest/](https://gpex.readthedocs.io/en/latest/)
-    
-* We've developed a tool we called [PyDmed](https://github.com/amirakbarnejad/PyDmed) 
-to facilitate developing machine learning methods for whole-slide images and medical images in general.
-If you work on ML + medical imaging, [PyDmed](https://github.com/amirakbarnejad/PyDmed)
-is really a life changer (research changer :) ). 
-
-      
-You can check out [PyDmed](https://github.com/amirakbarnejad/PyDmed)'s repository on 
-[github](https://github.com/amirakbarnejad/PyDmed).
 
 # Publications
-* N. Guruprasad, A. Akbarnejad, PJ Barnes, G. Bigras, and N. Ray, 
-"A Closer Look at Weak Supervision’s Limitations in WSI Recurrence Score Prediction", 2023 IEEE International Conference on Bioinformatics and Biomedicine (BIBM 2023).
 
-* A. Akbarnejad  and N. Ray and P. J Barnes and G. Bigras,
-"Predicting Ki67, ER, PR, and HER2 Statuses from H&E-stained Breast Cancer Images,"
-arxiv preprint: https://arxiv.org/abs/2308.01982.
+Please check my [google scholar](https://scholar.google.com/citations?view_op=list_works&hl=en&hl=en&user=RvpuPcoAAAAJ&sortby=pubdate)
+
+
+* L. Steele, A. Rose Foster, K. Roberts, C. Admane, S. Birk, P. V Mazin, A. Akbarnejad, Catherine Tudor, et al.
+"Hidden immune memory niches in inflammatory skin diseases", bioRxiv.
+
+* A. Rubbi, A. Akbarnejad, MV Sanian, A. Yazdan Parast, et al.
+"Shortest-Path Flow Matching with Mixture-Conditioned Bases for OOD Generalization to Unseen Conditions", [https://arxiv.org/abs/2601.11827](https://arxiv.org/abs/2601.11827).
+
+
+* A Akbarnejad, L Steele, DJ Jafree, S Birk, MR Sallese, K Rademaker, et al.
+"Mapping and reprogramming human tissue microenvironments with MintFlow". bioRxiv, 2025.06. 24.661094.
+
+* A. Akbarnejad, N. Ray, P. J Barnes, G. Bigras,
+"Toward accurate deep learning-based prediction of Ki67, ER, PR, and HER2 status from H&E-stained breast cancer images,"
+Applied Immunohistochemistry & Molecular Morphology 33 (3), 131-141.
 
 Link to the dataset[ihc4bc.githubio](https://ihc4bc.github.io) 
 
@@ -55,6 +46,10 @@ Link to the github repo [https://github.com/amirakbarnejad/gpex](https://github.
 
 
 Link to GPEX documentation [https://gpex.readthedocs.io/en/latest/](https://gpex.readthedocs.io/en/latest/)
+
+* N. Guruprasad, A. Akbarnejad, PJ Barnes, G. Bigras, and N. Ray, 
+"A Closer Look at Weak Supervision’s Limitations in WSI Recurrence Score Prediction", 2023 IEEE International Conference on Bioinformatics and Biomedicine (BIBM 2023).
+
 
 * Y. Yang and A. Akbarnejad and N. Ray and G. Bigras,
 "Double adversarial domain adaptation for whole-slide-imageclassification,"
