@@ -1,9 +1,11 @@
 # About
-I recieved my B.Sc. and M.Sc. in computer engineering from Sharif University of Technology.
+I am a postdoctoral researcher at Wellcome Sanger Institute and University of Cambridge.
+
 I received my PhD from University of Alberta, supervised by
 professor [Nilanjan Ray](https://webdocs.cs.ualberta.ca/~nray1/index.html) from Computing Science department
 and professor Gilbert Bigras from cross-cancer institue (CCI) and UofA department of Pathology.  
-Now I'm a postdoctoral researcher at Wellcome Sanger Institute and University of Cambridge.
+
+I recieved my B.Sc. and M.Sc. in computer engineering from Sharif University of Technology.
 
 Follow me on X: **@akbaRRnejad**
 
